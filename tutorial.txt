@@ -1,0 +1,2 @@
+convert csv to db file
+https://levlaz.org/converting-csv-to-a-sqlite-database/
