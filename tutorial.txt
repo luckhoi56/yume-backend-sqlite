@@ -1,2 +1,9 @@
 convert csv to db file
 https://levlaz.org/converting-csv-to-a-sqlite-database/
+
+
+build a separate db file and require
+https://developerhowto.com/2018/12/29/build-a-rest-api-with-node-js-and-express-js/
+
+sqlite function explanation
+https://www.sqlitetutorial.net/sqlite-nodejs/query/

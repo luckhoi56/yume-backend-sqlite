@@ -1,37 +1,31 @@
-const sqlite3 = require('sqlite3').verbose();
+
 const express = require("express");
 const app = express();
 var cors = require('cors');
+var db = require('./db.js');
 app.use(express.static("."));
 
 app.use(express.json());
 app.use(cors())
-let db = new sqlite3.Database('./db/menu.db', (err) => {
-    if (err) {
-      console.error(err.message);
-    }
-    console.log('Connected to the yume.');
-  });
 
-  db.serialize(() => {
-    db.each(`SELECT * from menu`, (err, row) => {
-      if (err) {
-        console.error(err.message);
-      }
-     // console.log(row.id + "\t" + row.name);
-     console.log(row);
-    });
-  });
+
+
   
-  db.close((err) => {
-    if (err) {
-      console.error(err.message);
-    }
-    console.log('Close the database connection.');
-  });
 
-  app.get("/", (req, res, next) => {
-    res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+  app.get("/menu", (req, res, next) => {
+    var sql = 'SELECT * from menu';
+    var params=[];
+    db.all(sql,params,(err,rows) =>{
+      if(err){
+        res.status(400).json({"error": err.message});
+        return;
+      }
+      res.json({
+        "message":"success",
+        "data":rows
+      })
+    })
+    
    });
   
   
