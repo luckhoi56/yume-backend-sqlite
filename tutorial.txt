@@ -7,3 +7,20 @@ https://developerhowto.com/2018/12/29/build-a-rest-api-with-node-js-and-express-
 
 sqlite function explanation
 https://www.sqlitetutorial.net/sqlite-nodejs/query/
+
+
+build a tab component for svelte
+https://linguinecode.com/post/svelte-tabs-component
+
+good practice for fetch
+https://svelte.dev/repl/70e61d6cc91345cdaca2db9b7077a941?version=3.29.0
+
+fix fetch problem
+https://github.com/sveltejs/sapper/issues/1140
+
+groupby in javascript
+https://stackoverflow.com/questions/14446511/most-efficient-method-to-groupby-on-an-array-of-objects
+
+good combo for async
+https://blog.pusher.com/promises-async-await/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
