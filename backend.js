@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 var cors = require('cors');
 var db = require('./db.js');
+const { SourceMap } = require("module");
 app.use(express.static("."));
 
 app.use(express.json());
@@ -30,6 +31,41 @@ app.use(cors())
   
    app.get("/menuCategory", (req, res, next) => {
     var sql = 'SELECT distinct category from menu';
+    var params=[];
+    db.all(sql,params,(err,rows) =>{
+      if(err){
+        res.status(400).json({"error": err.message});
+        return;
+      }
+      res.json({
+        "message":"success",
+        "data":rows
+      })
+    })
+    
+   });
+   
+   //data must be in form {Category:'Smoothie'} to work correctly
+   app.post("/test1", async(req, res, next) => {
+     //console.log(req);
+    const m_category = req.body.Category;
+    
+    var sql = `select * from menu where category ="${m_category}" `;
+    params=[];
+    db.all(sql,params,(err,rows) =>{
+      if(err){
+        res.status(400).json({"error": err.message});
+        return;
+      }
+      res.json({
+        "message":"test1 is done",
+        "data":rows
+      })
+    })
+   });
+
+   app.get("/test2", (req, res, next) => {
+    var sql = 'SELECT  * from menu where category ="Soup" ';
     var params=[];
     db.all(sql,params,(err,rows) =>{
       if(err){
