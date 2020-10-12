@@ -1,3 +1,7 @@
 id,Category,ItemName,SizeChoice,ToppingChoice,Price,Image
 1,Soup,Beef Pho,Soup Size,Soup Topping,6.75,https://yumemenu.s3-us-west-1.amazonaws.com/Images/pho/pho_bo.jpg
-2,Smoothie,Mango Smoothie,Drink Size,Drink Topping,3.5,https://yumemenu.s3-us-west-1.amazonaws.com/Images/smoothie/mango.jpg
+2,Soup,File Mignon Beef Noodle,Soup Size,Soup Topping,9.50,https://yumemenu.s3-us-west-1.amazonaws.com/Images/pho/pho_file.jpg
+3,Soup,House Combo Beef Noodle,Soup Size,Soup Topping,7.25,https://yumemenu.s3-us-west-1.amazonaws.com/Images/pho/pho_bo.jpg
+7,Rice,Diced Beef Over Rice,Rice Size,Rice Topping,7.75,https://yumemenu.s3-us-west-1.amazonaws.com/Images/com/com_thit.jpg
+8,Rice,File Mignon Beef Over Rice,Ricce Size,Rice Topping,8.75,https://yumemenu.s3-us-west-1.amazonaws.com/Images/com/com_thit.jpg
+9,Smoothie,Mango Smoothie,Drink Size,Drink Topping,3.5,https://yumemenu.s3-us-west-1.amazonaws.com/Images/smoothie/mango.jpg
