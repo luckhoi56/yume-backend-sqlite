@@ -63,6 +63,26 @@ app.use(cors())
       })
     })
    });
+   //the input will be ether soup,smoothie,coffee,or drink and it will fetch accordingly
+   app.post("/getOptions", async(req, res, next) => {
+    //console.log(req);
+   const m_category = req.body.Category;
+   if(m_category == 'Soup'){
+     var sql_1 = `select * from soupsize`
+   }
+   var sql = `select * from menu where category ="${m_category}" `;
+   params=[];
+   db.all(sql,params,(err,rows) =>{
+     if(err){
+       res.status(400).json({"error": err.message});
+       return;
+     }
+     res.json({
+       "message":"test1 is done",
+       "data":rows
+     })
+   })
+  });
 
    app.get("/test2", (req, res, next) => {
     var sql = 'SELECT  * from menu where category ="Soup" ';
@@ -79,6 +99,8 @@ app.use(cors())
     })
     
    });
+
+
    
   //app.listen(4242, () => console.log('Node server listening on port 4242!'));
   const PORT = process.env.PORT || 4242;
