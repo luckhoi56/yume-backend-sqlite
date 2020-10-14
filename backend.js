@@ -64,13 +64,11 @@ app.use(cors())
     })
    });
    //the input will be ether soup,smoothie,coffee,or drink and it will fetch accordingly
-   app.post("/getOptions", async(req, res, next) => {
+   app.post("/getSize", async(req, res, next) => {
     //console.log(req);
-   const m_category = req.body.Category;
-   if(m_category == 'Soup'){
-     var sql_1 = `select * from soupsize`
-   }
-   var sql = `select * from menu where category ="${m_category}" `;
+   const m_category = (req.body.Category).toLowerCase();
+   
+   var sql = `select * from ${m_category}size`;
    params=[];
    db.all(sql,params,(err,rows) =>{
      if(err){
