@@ -9,7 +9,30 @@ app.use(express.static("."));
 app.use(express.json());
 app.use(cors())
 
+async function getSize(m_category){
+  var params=[];
+  var m_options = [] //
+  var m_temp_1 =[];
+  var m_temp_2 =[];
+  var sql_1 =`select * from ${m_category}size`;
+  var sql_2 = `select * from ${m_category}topping`;
+  db.all(sql_1,params,(err,rows) =>{
+    if(err){
+      res.status(400).json({"error": err.message});
+        return;
+    }
+    m_temp_1.push(rows)
+    m_options.push(m_temp_1);
+  })
+  db.all(sql_2,params,(err,rows) =>{
+    if(err){
+      res.status(400).json({"error": err.message});
+        return;
+    }
+    m_options.push(rows);
+  })
 
+}
 
   
 
@@ -82,6 +105,25 @@ app.use(cors())
    })
   });
   app.post("/getTopping", async(req, res, next) => {
+    //console.log(req);
+   const m_category = (req.body.Category).toLowerCase();
+   
+   var sql = `select * from ${m_category}topping`;
+   params=[];
+   db.all(sql,params,(err,rows) =>{
+     if(err){
+       res.status(400).json({"error": err.message});
+       return;
+     }
+     res.json({
+       "message":"getTopping is done",
+       "data":rows
+     })
+   })
+  });
+
+
+  app.post("/getOptions", async(req, res, next) => {
     //console.log(req);
    const m_category = (req.body.Category).toLowerCase();
    
