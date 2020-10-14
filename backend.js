@@ -76,7 +76,24 @@ app.use(cors())
        return;
      }
      res.json({
-       "message":"test1 is done",
+       "message":"getSize is done",
+       "data":rows
+     })
+   })
+  });
+  app.post("/getTopping", async(req, res, next) => {
+    //console.log(req);
+   const m_category = (req.body.Category).toLowerCase();
+   
+   var sql = `select * from ${m_category}topping`;
+   params=[];
+   db.all(sql,params,(err,rows) =>{
+     if(err){
+       res.status(400).json({"error": err.message});
+       return;
+     }
+     res.json({
+       "message":"getTopping is done",
        "data":rows
      })
    })
