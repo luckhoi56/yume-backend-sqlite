@@ -45,7 +45,7 @@ app.use(cors())
     
    });
    
-   //data must be in form {Category:'Smoothie'} to work correctly
+   //data must be in form {"Category":"Smoothie"}, the option is in json to work correctly
    app.post("/test1", async(req, res, next) => {
      //console.log(req);
     const m_category = req.body.Category;
